@@ -15,7 +15,7 @@ public class BaseTest {
     WebDriver driver;
     public WebDriverWait wait;
 
-    FileInputStream fis = new FileInputStream("TestData.xlsx");
+    FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"//test-data/TestData.xlsx");
     XSSFWorkbook workbook = new XSSFWorkbook(fis);
     XSSFSheet sheet = workbook.getSheetAt(0);
 
