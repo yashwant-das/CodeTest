@@ -8,7 +8,7 @@ import webpages.LoginPage;
 
 import java.io.IOException;
 
-public class BasicTest extends BaseTest {
+public class GenericTest extends BaseTest {
     private LoginPage googleLoginPage;
     int sheet_index = 0;
 
@@ -16,11 +16,11 @@ public class BasicTest extends BaseTest {
     String passWord= "CodeTest#1234";
     String formTitleText = "Automated Google Form Test";
 
-    public BasicTest() throws IOException {
+    public GenericTest() throws IOException {
     }
 
     @Test
-    public void login() throws InterruptedException {
+    public void BaseCompliedTest() throws InterruptedException {
 
         enterUserCredentials();
         createForm();
