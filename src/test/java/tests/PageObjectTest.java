@@ -70,17 +70,17 @@ public class PageObjectTest extends BaseTest {
                 }
                 options.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
                 options.sendKeys(sheet.getRow(i).getCell(j).toString());
-                Thread.sleep(3000);
+                Thread.sleep(1000);
 
                 if (j<=3){
                     add_option(i);
-                    Thread.sleep(3000);
+                    Thread.sleep(1000);
                 }
             }
 
             if(i<=2){
                 addQuestion();
-                Thread.sleep(3000);
+                Thread.sleep(1000);
             }
         }
 
@@ -90,19 +90,14 @@ public class PageObjectTest extends BaseTest {
     public void changeToQuizzes() throws InterruptedException {
         //Create object of FormsHome Class
         SettingsPage settingsPage = new SettingsPage(driver);
-        sleep(5000);
-
-        //Click on Setting icon
-        WebElement settingButton = driver.findElement(By.xpath("//*[@id=\"tJHJj\"]/div[1]/div[2]/div/div[4]/div/span/span/div"));
-        settingButton.click();
-
-        //Click on quizzes
-        WebElement quizzesButton = driver.findElement(By.xpath("//*[@id=\"wizViewportRootId\"]/div[7]/div/div[2]/span/div/div/div[1]/div[3]/span"));
-        quizzesButton.click();
-
-        //Make this a quiz
-        WebElement makeQuizz = driver.findElement(By.xpath("//*[@id=\"jmAoTe\"]/div/div/div[1]/label/div/div[1]"));
-        makeQuizz.click();
+        sleep(3000);
+        settingsPage.openSetting();
+        settingsPage.moveToQuizTab();
+        Thread.sleep(1000);
+        settingsPage.setToQuizzes();
+        Thread.sleep(1000);
+        settingsPage.saveProgress();
+        Thread.sleep(1000);
     }
 
     public void add_option(int val){

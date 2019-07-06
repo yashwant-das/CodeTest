@@ -12,13 +12,13 @@ public class SettingsPage {
     @FindBy(xpath="//*[@id=\"tJHJj\"]/div[1]/div[2]/div/div[4]/div/span/span/div")
     WebElement settings_icon;
 
-    @FindBy(xpath="//*[@id=\"wizViewportRootId\"]/div[7]/div/div[2]/span/div/div/div[1]/div[3]/span")
-    WebElement quizzes_section;
+    @FindBy(xpath="(.//*[normalize-space(text()) and normalize-space(.)='Presentation'])[1]/following::span[1]")
+    WebElement quizzes_tab;
 
     @FindBy(xpath="//*[@id=\"jmAoTe\"]/div/div/div[1]/label/div/div[1]")
-    WebElement make_quizzes;
+    WebElement make_this_a_quizz;
 
-    @FindBy(xpath="//*[@id=\"wizViewportRootId\"]/div[7]/div/div[2]/div[3]/div[2]")
+    @FindBy(xpath="(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[2]/following::span[2]")
     WebElement save_button;
 
     //Constructor
@@ -33,12 +33,12 @@ public class SettingsPage {
         settings_icon.click();
     }
 
-    public void moveToQuizzes(){
-        quizzes_section.click();
+    public void moveToQuizTab(){
+        quizzes_tab.click();
     }
 
-    public void setQuizzes(){
-        make_quizzes.click();
+    public void setToQuizzes(){
+        make_this_a_quizz.click();
 
     }
     public void saveProgress(){

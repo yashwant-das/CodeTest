@@ -57,6 +57,8 @@ public class GenericTest extends BaseTest {
             }
         }
 
+        doFinalSteps();
+
     }
 
     public void fillformtitle(){
@@ -109,8 +111,8 @@ public class GenericTest extends BaseTest {
         settingButton.click();
 
         //Click on quizzes
-        WebElement quizzesButton = driver.findElement(By.xpath("//*[@id=\"wizViewportRootId\"]/div[7]/div/div[2]/span/div/div/div[1]/div[3]/span"));
-        quizzesButton.click();
+        WebElement quizz_tab = driver.findElement(By.xpath("//*[@id=\"wizViewportRootId\"]/div[7]/div/div[2]/span/div/div/div[1]/div[3]/span"));
+        quizz_tab.click();
 
         //Make this a quiz
         WebElement makeQuizz = driver.findElement(By.xpath("//*[@id=\"jmAoTe\"]/div/div/div[1]/label/div/div[1]"));
