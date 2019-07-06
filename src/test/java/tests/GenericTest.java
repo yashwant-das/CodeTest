@@ -25,10 +25,9 @@ public class GenericTest extends BaseTest {
         enterUserCredentials();
         createForm();
         fillformtitle();
-        doFinalSteps();
 
         sheet_index = sheet.getPhysicalNumberOfRows();
-        for(int i = 1; i<=sheet_index; i++) {
+        for(int i = 1; i<=sheet_index-1; i++) {
 
             //Enter Question
             WebElement question = driver.findElement(By.xpath("//*[@id=\"SchemaEditor\"]/div/div[2]/div/div/div[3]/div["+i+"]/div/div/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span/div/div/div[1]/div[2]/textarea"));
@@ -48,7 +47,8 @@ public class GenericTest extends BaseTest {
                 Thread.sleep(1000);
 
                 if (j<=3){
-                    add_option();
+                    add_option(i);
+                    Thread.sleep(3000);
                 }
             }
 
@@ -93,8 +93,8 @@ public class GenericTest extends BaseTest {
 
     }
 
-    public void add_option(){
-        driver.findElement(By.xpath("//*[@id=\"SchemaEditor\"]/div/div[2]/div/div/div[3]/div/div/div/div[1]/div[2]/div[3]/div[1]/div[2]/div/div[2]/div[3]/div/div[2]/div/div[2]/input")).click();
+    public void add_option(int val){
+        driver.findElement(By.xpath("//*[@id=\"SchemaEditor\"]/div/div[2]/div/div/div[3]/div["+val+"]/div/div/div[1]/div[2]/div[3]/div[1]/div[2]/div/div[2]/div[3]/div/div[2]/div/div[2]/input")).click();
     }
 
     public void save(){

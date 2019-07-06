@@ -13,7 +13,9 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     WebDriver driver;
+    int sheet_index = 0;
     public WebDriverWait wait;
+    String baseUrl = "https://www.google.com/forms/";
 
     FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"//test-data/TestData.xlsx");
     XSSFWorkbook workbook = new XSSFWorkbook(fis);
@@ -25,8 +27,9 @@ public class BaseTest {
     @BeforeTest
     public void setup(){
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("https://www.google.com/forms/");
+        driver.get(baseUrl);
     }
 
     @AfterClass(description = "Class Level Teardown!")
