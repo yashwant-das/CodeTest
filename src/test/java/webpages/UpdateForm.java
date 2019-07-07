@@ -15,10 +15,11 @@ import java.io.IOException;
 public class UpdateForm {
 
     //Reading Excel Data
-    int sheet_index = 0;
-    FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//test-data/TestData.xlsx");
+    int lastRowNum = 0;
+    FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//test-data/TestData_7.xlsx");
     XSSFWorkbook workbook = new XSSFWorkbook(fis);
     XSSFSheet sheet = workbook.getSheetAt(0);
+
 
     @FindBy(xpath = "//*[@id=\"SchemaEditor\"]/div/div[1]/div/div/div[1]/div")
     WebElement new_question;
@@ -53,8 +54,8 @@ public class UpdateForm {
 
     //Function to fill form data from testData file
     public void fillFormData() throws InterruptedException {
-        sheet_index = sheet.getPhysicalNumberOfRows();
-        for (int i = 1; i <= sheet_index - 1; i++) {
+        lastRowNum = sheet.getLastRowNum();
+        for (int i = 1; i <= lastRowNum; i++) {
 
             //Enter Question
             WebElement question = driver.findElement(By.xpath("//*[@id=\"SchemaEditor\"]/div/div[2]/div/div/div[3]/div[" + i + "]/div/div/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span/div/div/div[1]/div[2]/textarea"));
@@ -66,6 +67,7 @@ public class UpdateForm {
             for (int j = 1; j <= 4; j++) {
 
                 WebElement options = driver.findElement(By.xpath("//*[@id=\"SchemaEditor\"]/div/div[2]/div/div/div[3]/div[" + i + "]/div/div/div[1]/div[2]/div[3]/div[1]/div[2]/div/div[2]/div[1]/div[" + j + "]/div[1]/div[3]/div[1]/div/span/div/div/div[1]/input"));
+                //For the first option a click was required to enter the data
                 if (j <= 1) {
                     options.click();
                 }
@@ -78,12 +80,11 @@ public class UpdateForm {
                     Thread.sleep(1000);
                 }
             }
-
-            if (i <= 2) {
+            //Add question
+            if (i <= lastRowNum) {
                 addQuestion();
                 Thread.sleep(1000);
             }
         }
-
     }
 }
