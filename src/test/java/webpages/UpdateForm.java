@@ -13,17 +13,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class UpdateForm {
-
     //Reading Excel Data
     int lastRowNum = 0;
-    FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//test-data/TestData_7.xlsx");
+    FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src/test/resources/TestData_5.xlsx");
     XSSFWorkbook workbook = new XSSFWorkbook(fis);
     XSSFSheet sheet = workbook.getSheetAt(0);
-
-
     @FindBy(xpath = "//*[@id=\"SchemaEditor\"]/div/div[1]/div/div/div[1]/div")
     WebElement new_question;
-
     @FindBy(xpath = "//*[@id=\"SchemaEditor\"]/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div/span/div/div[1]/div[2]/textarea")
     WebElement form_title;
     private WebDriver driver;

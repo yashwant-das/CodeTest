@@ -11,7 +11,7 @@ public class SettingsPage {
     @FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Presentation'])[1]/following::span[1]")
     WebElement quizzes_tab;
     @FindBy(xpath = "//*[@id=\"jmAoTe\"]/div/div/div[1]/label/div/div[1]")
-    WebElement make_this_a_quizz;
+    WebElement make_this_a_quiz;
     @FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Cancel'])[2]/following::span[2]")
     WebElement save_button;
     private WebDriver driver;
@@ -36,7 +36,7 @@ public class SettingsPage {
 
     //Make this a quiz
     public void setToQuizzes() {
-        make_this_a_quizz.click();
+        make_this_a_quiz.click();
 
     }
 

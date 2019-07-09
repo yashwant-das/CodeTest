@@ -1,21 +1,31 @@
 package tests;
 
+import Utils.SuiteConfiguration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    public WebDriverWait wait;
-    WebDriver driver;
-    String baseUrl = "https://www.google.com/forms/";
 
-    String username = "humbleautomator@gmail.com";
-    String passWord = "CodeTest#1234";
-    String formTitle = "Automated Google Form Entry";
+    // Reading configuration from the property file
+    SuiteConfiguration config = new SuiteConfiguration();
+    String formTitle = config.getProperty("GoogleFormTitle");
+    String baseUrl = config.getProperty("url");
+    byte[] decodedUsername = Base64.getDecoder().decode(config.getProperty("username"));
+    String username = new String(decodedUsername);
+    byte[] decodedPassword = Base64.getDecoder().decode(config.getProperty("password"));
+    String password = new String(decodedPassword);
+    WebDriver driver;
+    WebDriverWait wait;
+
+    public BaseTest() throws IOException {
+    }
 
     @BeforeTest
     public void setup() {

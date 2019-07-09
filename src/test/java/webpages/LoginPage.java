@@ -1,12 +1,11 @@
 package webpages;
 
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
-
     @FindBy(id = "identifierId")
     WebElement user_email;
     @FindBy(xpath = "//*[@id=\"password\"]/div[1]/div/div[1]/input")
@@ -16,7 +15,6 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"passwordNext\"]/span/span")
     WebElement passwordNext;
     private WebDriver driver;
-
 
     //Constructor
     public LoginPage(WebDriver driver) {

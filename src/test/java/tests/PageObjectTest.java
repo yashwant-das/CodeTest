@@ -12,6 +12,9 @@ import static java.lang.Thread.*;
 
 public class PageObjectTest extends BaseTest {
 
+    public PageObjectTest() throws IOException {
+    }
+
     // Login with user credentials
     @Test
     public void googleFormsLogin() {
@@ -21,7 +24,7 @@ public class PageObjectTest extends BaseTest {
         loginPage.setUser_email(username);
         loginPage.confirmUser_email();
         //Enter password & click next
-        loginPage.setUser_password(passWord);
+        loginPage.setUser_password(password);
         loginPage.confirmUser_password();
     }
 
