@@ -1,30 +1,34 @@
 # Code Test
 
-Selenium framework to Automate Google Forms entry from an external *.xlsx file
+[Selenium](https://www.google.com) framework to Automate [Google Forms](https://www.google.com/forms/about/) data entry from an external data file
 
-## Installation
+## Pre-requisites 
 
-* Clone the repository
+- Install [Google Chrome](https://www.google.com/chrome/)
+- Use the package manager to install [maven](https://maven.apache.org/) & [chromedriver](http://chromedriver.chromium.org/)
+
+```
+brew install maven
+brew cask install chromedriver
+```
+I prefer [Homebrew](https://brew.sh/)
+
+## Usage
+- Clone the repository
 
 ```bash
 https://github.com/yash3x/CodeTest
 ```
-
-* Use the package manager to install maven, chromedriver
-
-```bash
-brew install maven
-brew cask install chromedriver
-```
-
-## Usage
-username and password under ~/resources/application.properties are base64 encoded.
-
-Open a terminal and go to the project root and run
+- Open a terminal and go to the project root and run
 
 ```
 mvn clean test
 ```
+## Reports
+Reporting is achieved with the help of [Extent Reporting Framework](extentreports.com/) 
+
+Test Reports can be found under ~/test-report/report/
 
 ## Note
-If you face any issue, try to build the project in IntelliJ IDEA and re-run the test
+* username and password under ~/resources/application.properties are base64 encoded.
+* If you are facing any issues, try to build the project in IntelliJ IDEA and re-run the test
